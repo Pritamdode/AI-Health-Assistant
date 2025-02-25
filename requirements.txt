@@ -1,1 +1,9 @@
 requirements.txt 
+flask
+numpy
+pandas
+scikit-learn
+tensorflow
+nltk
+spacy
+requests
