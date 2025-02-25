@@ -9,3 +9,12 @@ An AI-powered health assistant using NLP and Machine Learning.
 
 ## Installation:
 1. Clone this repository:
+
+## Technologies Used:
+- Python
+- Flask
+- Machine Learning
+- Natural Language Processing (NLP)
+
+## Contributors:
+- **Pritam Dode**
