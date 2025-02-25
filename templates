@@ -1,1 +1,15 @@
 templates
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>AI Health Assistant</title>
+</head>
+<body>
+    <h1>Welcome to AI Health Assistant</h1>
+    <form id="chat-form">
+        <input type="text" id="user-input" placeholder="Ask me anything...">
+        <button type="submit">Send</button>
+    </form>
+    <div id="chat-response"></div>
+</body>
+</html>
