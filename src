@@ -1,4 +1,47 @@
 main.py       # Main script
+from flask import Flask, request, jsonify
+from src.chatbot import get_response
+
+app = Flask(__name__)
+
+@app.route('/chat', methods=['POST'])
+def chat():
+    user_input = request.json.get("message")
+    response = get_response(user_input)
+    return jsonify({"response": response})
+
+if __name__ == '__main__':
+    app.run(debug=True)
+
 chatbot.py    # Chatbot logic
+import random
+
+responses = {
+    "hello": ["Hi there!", "Hello!", "Hey! How can I help?"],
+    "how are you": ["I'm just a bot, but I'm doing great! How about you?"],
+    "symptoms": ["Tell me your symptoms, and I'll try to help."]
+}
+
+def get_response(user_input):
+    user_input = user_input.lower()
+    for key in responses:
+        if key in user_input:
+            return random.choice(responses[key])
+    return "I'm sorry, I didn't understand. Can you rephrase?"
+
 nlp_model.py  # NLP and ML models
+import spacy
+
+nlp = spacy.load("en_core_web_sm")
+
+def process_text(text):
+    doc = nlp(text)
+    return [token.lemma_ for token in doc]
+
 utils.py      # Helper functions
+import json
+
+def load_data(file_path):
+    with open(file_path, "r") as file:
+        return json.load(file)
+
